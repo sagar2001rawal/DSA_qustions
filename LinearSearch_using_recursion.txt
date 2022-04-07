@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool Linearsearch(int arr[],int size, int key)
+{
+	//base case
+	if(size==0)
+	{
+		return false;
+	}
+	if(arr[0]==key)
+	{
+		return true;
+	}
+	else{
+	//recursive relation.....//
+	 bool ans=Linearsearch(arr+1,size-1,key);
+	 return ans;
+	}
+}
+int main()
+{
+	int n;
+	cin>>n;
+	int *arr = new int(n);
+	for(int i=0;i<n;i++)
+	{
+		cin>>arr[i];
+	}
+	int key;
+	cin >> key;
+	for(int i=0;i<n;i++)
+	{
+		cout<<arr[i]<<" ";
+	}
+	cout << endl;
+	bool ans = Linearsearch(arr,n,key);
+	if(ans)
+	{
+		cout<<"Key Founded" <<endl;
+	}
+	else cout<<"Not Founded" <<endl;
+}
