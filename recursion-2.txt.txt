@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+ int powerof(int n)
+ {
+ 	// base case;	
+ 	if(n==0)
+ 		return 1;
+ 	// recursive relation;
+ 	return 2 * powerof(n-1);
+ }
+int main()
+{
+	int n;
+	cin >> n;
+
+	int ans=powerof(n);
+	cout << "2 power of "<< n << " is " << ans <<endl;
+}
+
