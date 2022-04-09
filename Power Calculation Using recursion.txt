@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int power1(int b, int p)
+{
+	//base case
+	if(p == 0)
+	{
+		return 1;
+	}
+	if(p == 1)
+		return b;
+	int result = power1(b,p/2);
+	// recursive call
+	if(p%2)
+		return b * result * result ;
+	else
+		return result * result;
+		
+}
+int main()
+{
+	int base,power;
+	cin >> base;
+	cin >> power;
+	int ans = power1(base,power);
+	cout << base << " to the power " << power << " is " << ans<<endl;
+	return 0;
+}
