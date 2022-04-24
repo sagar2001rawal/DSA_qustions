@@ -1,0 +1,59 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Node{
+public:
+	int data;
+	Node * next;
+	Node(int data)
+	{
+		this -> data = data;
+		this -> next = NULL;
+	}
+	~Node(){
+		if(next != NULL)
+		{
+			delete next;
+			next = NULL;
+		}
+	}
+};
+void insertatend(Node* &head,int data){
+	Node *temp = head;
+	Node *ins = new Node(data);
+	while( temp -> next != NULL )
+	{
+		temp = temp -> next;
+	}
+	temp -> next = ins;
+}
+void print(Node* &head)
+{
+	Node *temp = head;
+	while(temp != NULL)
+	{
+		cout << temp -> data << " " ;
+		temp = temp -> next;
+	}
+}
+void movelasttofirst(Node* &head)
+{
+	Node *temp = head;
+	while(temp -> next ->next != NULL)
+	{
+		temp = temp -> next;
+	}
+	Node *aisehi = temp -> next;
+	temp -> next = NULL;
+	aisehi -> next = head;
+	head = aisehi;
+}
+int main()
+{
+	Node *head = new Node(10);
+	insertatend(head,20);
+	insertatend(head,30);
+	insertatend(head,40);
+	insertatend(head,50);
+	movelasttofirst(head);
+	print(head);
+}
